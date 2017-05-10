@@ -13,6 +13,8 @@ public class Board {
 			for(int column = 0; column < squares[row].length; column++){
 				squares[row][column] = new Square();
 			}
-		}
+		}	
 	}
+
+	// contemplate placeShip method/class, with regard to starting position, length and orientation
 }
