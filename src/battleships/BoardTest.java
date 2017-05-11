@@ -61,4 +61,10 @@ public class BoardTest {
 		assertFalse(board.squares[2][0].isFull());
 	}
 	
+	@Test
+	public void placementIncrementsFullCounter(){
+		board.place(ship, 0, 0, true);
+		assertEquals(2, board.fullSquares);
+	}
+	
 }

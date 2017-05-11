@@ -9,6 +9,9 @@ This model is written in pure Java and is intended to run in the terminal. I hav
 * The board consists of a 10x10 2D array of Square objects.
 * Squares have a boolean instance variable `isFull` that states whether this square contains part of a ship.
 * The board has a variable `fullSquares` that will track the number of squares filled.
+* There is a `place()` method on the board, which sets a given number of squares (either horizontally or vertically from a given target square) to full, based on the length of the ship being placed.
+* There is a `Player` class that will have its own board.
+* Two Players are instatiated in the Game class, and have hard-coded fleet placements.
 
 ## Tracking Board
 
