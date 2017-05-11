@@ -27,12 +27,15 @@ public class Player {
 		this.trackingBoard = new TrackingBoard(board.squares);
 	}
 	
-	public void fire(int row, int column){
+	public boolean fire(int row, int column){
 		Square targetSquare = trackingBoard.squares[row][column];
 		targetSquare.setVisible(true);
 		if (targetSquare.isFull()){
 			hits++;
+			return true;
 		}
+		
+		return false;
 		
 	}
 	
