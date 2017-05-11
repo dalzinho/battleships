@@ -7,7 +7,9 @@ public class Player {
 	String name;
 	ArrayList<Ship> fleet;
 	TrackingBoard trackingBoard;
+	Console console;
 	int hits;
+	
 	
 	Player(String name){
 		this.board = new Board();
@@ -15,11 +17,21 @@ public class Player {
 		this.fleet = ShipYard.buildFleet();
 		this.trackingBoard = null;
 		this.hits = 0;
+		this.console = new Console();
 	}
 	
-	public void setupBoard(){
+	public void setupBoard(){	
+		
 		for(int i = 0; i < fleet.size(); i++){
-		board.place(fleet.get(i), i, 0, true);
+			console.renderGrid(board);
+			int[] target = console.getFireTarget();
+			boolean orientation = console.getOrientation();
+			
+			// need to handle entering letters
+			// need to handle overlaps
+			// need to handle out of bounds
+			
+			board.place(fleet.get(i), target[0], target[1], orientation);
 		}
 	}
 	

@@ -17,6 +17,28 @@ public class Console {
 		}
 	}
 	
+	public void renderGrid(Board board){
+		for(int row = 0; row < board.squares.length; row++){
+			System.out.println("| " + rend.renderRow(board.squares[row]));
+		}
+	}
+	
+	public boolean getOrientation(){
+		display("Will this ship be (h)orizontal or (v)ertical?");
+		
+		while(true){
+			String orientation = sc.nextLine();
+			
+			if(orientation.equals("h")){
+				return true;
+			} else if (orientation.equals("v")){
+				return false;
+			}
+		}		
+	}
+	
+
+	
 	public int[] getFireTarget(){
 		int[] target = new int[2];
 		
