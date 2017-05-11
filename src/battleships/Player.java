@@ -30,7 +30,6 @@ public class Player {
 			boolean orientation = console.getOrientation();
 			
 			// need to handle entering letters
-			// need to handle out of bounds
 			
 			if(!board.shipFits(fleet.get(i), target[0], target[1], orientation)){
 				console.display("Out of bounds!");

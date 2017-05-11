@@ -52,11 +52,16 @@ public class Console {
 			}
 			
 			display("Enter " + displayItem + "! (This is zero-indexed)");
-			target[i] = sc.nextInt();
-			// catch out of bounds
+			String input = sc.nextLine();
+			try {
+				target[i] = Integer.parseInt(input);
+			} catch (NumberFormatException e){
+				target[i] = 1_000_000;
+			}
+			
 			while(target[i] > 9){
 				display("out of bounds, try again!");
-				target[i] = sc.nextInt();
+				getFireTarget();
 			}
 		}	
 		return target;
