@@ -8,10 +8,12 @@ import org.junit.Test;
 public class PlayerTest {
 
 	Player player;
+	Player player2;
 	
 	@Before
 	public void setUp() throws Exception {
 		player = new Player("test");
+		player2 = new Player("dummy");
 	}
 
 	@Test
@@ -24,5 +26,24 @@ public class PlayerTest {
 	public void setupFills17squares(){
 		player.setupBoard();
 		assertEquals(17, player.board.fullSquares);
+	}
+	
+	@Test
+	public void instantiatesWithNoTrackingBoard(){
+		assertEquals(null, player.trackingBoard);
+	}
+	
+	@Test
+	public void trackingBrdSetterWorks(){
+		player2.setupBoard();
+		player.setTrackingBoard(player2.board);
+		// test that there's something there!
+		assertNotNull(player.trackingBoard);
+		// test that squares are invisible
+		assertFalse(player.trackingBoard.squares[4][4].isVisible);
+		// test that player 2's ship pattern has passed over
+		assertTrue(player.trackingBoard.squares[4][0].isFull);
+		assertFalse(player.trackingBoard.squares[5][0].isFull);
+		
 	}
 }

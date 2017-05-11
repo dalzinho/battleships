@@ -13,7 +13,7 @@ public class RendererTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+
 	}
 
 }
