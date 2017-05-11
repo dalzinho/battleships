@@ -11,7 +11,7 @@ This model is written in pure Java and is intended to run in the terminal. I hav
 * The board has a variable `fullSquares` that will track the number of squares filled.
 * There is a `place()` method on the board, which sets a given number of squares (either horizontally or vertically from a given target square) to full, based on the length of the ship being placed.
 * There is a `Player` class that will have its own board.
-* Two Players are instatiated in the Game class, and have hard-coded fleet placements.
+* Two Players are instatiated in the `Game` class, and have hard-coded fleet placements.
 
 ## Tracking Board
 
