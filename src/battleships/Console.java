@@ -22,8 +22,18 @@ public class Console {
 		
 		display("What row? (0-indexed!)");
 		target[0] = sc.nextInt();
+		// catch out of bounds
+		while(target[0] > 9){
+			display("out of bounds, try again!");
+			target[0] = sc.nextInt();
+		}
 		display("What column? (Also 0-indexed!)");
 		target[1] = sc.nextInt();
+		
+		while(target[1] > 9){
+			display("out of bounds, try again!!");
+			target[1] = sc.nextInt();
+		}
 		
 		return target;
 	}

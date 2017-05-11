@@ -32,4 +32,5 @@ This model is written in pure Java and is intended to run in the terminal. I hav
 ## Outstanding issues
 
 * entering character during fire sequence throws inputmismatchexception
+* lots of repetition of code around main game loop; this should be refactored
 * would prefer players to have manual ship entry (and all the exception handling this brings :D )
