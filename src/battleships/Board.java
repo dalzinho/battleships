@@ -20,20 +20,34 @@ public class Board {
 		squares[row][column].setFull(true);
 		fullSquares++;
 	}
+	
+	public boolean shipOverlaps(Ship ship, int targetRow, int targetColumn, boolean isHorizontal){
+		if(isHorizontal){
+			for(int column = targetColumn; column < ship.length + targetColumn; column++){
+				if(squares[targetRow][column].isFull()){
+					return true;
+				}
+			}
+		} else {
+			for(int row = targetRow; row < ship.length + targetRow; row++){
+				if(squares[row][targetColumn].isFull()){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	// contemplate placeShip method/class, with regard to starting position, length and orientation
-	public boolean place(Ship ship, int targetRow, int targetColumn, boolean isHorizontal){
+	public void place(Ship ship, int targetRow, int targetColumn, boolean isHorizontal){
 		if(isHorizontal){
 			for(int column = targetColumn; column < ship.getLength() + targetColumn; column++){
 				fillSquare(targetRow, column);
 			}
-			return true;
 		} else {
 			for(int row = targetRow; row < ship.getLength() + targetRow; row ++){
 				fillSquare(row, targetColumn);
 			}
-			return true;
-			
 		}
 	}
 }

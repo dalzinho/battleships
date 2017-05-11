@@ -25,6 +25,7 @@ public class Player {
 		for(int i = 0; i < fleet.size(); i++){
 			console.display(name + " place your ship. Length: " + fleet.get(i).length);
 			console.renderGrid(board);
+			
 			int[] target = console.getFireTarget();
 			boolean orientation = console.getOrientation();
 			
@@ -32,10 +33,22 @@ public class Player {
 			// need to handle overlaps
 			// need to handle out of bounds
 		
-			
-			board.place(fleet.get(i), target[0], target[1], orientation);
+			if(board.shipOverlaps(fleet.get(i), target[0], target[1], orientation)){
+				console.display("Uh-oh! Ships can't overlap!");
+				break;
+			} else {
+				board.place(fleet.get(i), target[0], target[1], orientation);
+			}
+		}
+		if(board.fullSquares < 17){
+			console.display("Something went wrong!");
+			board = new Board();
+			setupBoard();
 		}
 	}
+	
+	
+	
 	
 	public void setTrackingBoard(Board board){
 		this.trackingBoard = new TrackingBoard(board.squares);
