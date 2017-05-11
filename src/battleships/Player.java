@@ -23,6 +23,7 @@ public class Player {
 	public void setupBoard(){	
 		
 		for(int i = 0; i < fleet.size(); i++){
+			console.display(name + " place your ship. Length: " + fleet.get(i).length);
 			console.renderGrid(board);
 			int[] target = console.getFireTarget();
 			boolean orientation = console.getOrientation();
@@ -30,6 +31,7 @@ public class Player {
 			// need to handle entering letters
 			// need to handle overlaps
 			// need to handle out of bounds
+		
 			
 			board.place(fleet.get(i), target[0], target[1], orientation);
 		}
@@ -40,6 +42,8 @@ public class Player {
 	}
 	
 	public boolean fire(int row, int column){
+		// need to handle multiple selections of hit squares
+		
 		Square targetSquare = trackingBoard.squares[row][column];
 		targetSquare.setVisible(true);
 		if (targetSquare.isFull()){
