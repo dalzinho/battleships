@@ -66,11 +66,6 @@
             <classpath refid="battleships.classpath"/>
         </junit>
     </target>
-    <target name="Game (1)">
-        <java classname="battleships.Game" failonerror="true" fork="yes">
-            <classpath refid="battleships.classpath"/>
-        </java>
-    </target>
     <target name="PlayerTest">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
@@ -79,6 +74,11 @@
             <jvmarg line="-ea"/>
             <classpath refid="battleships.classpath"/>
         </junit>
+    </target>
+    <target name="Main (1)">
+        <java classname="battleships.Main" failonerror="true" fork="yes">
+            <classpath refid="battleships.classpath"/>
+        </java>
     </target>
     <target name="junitreport">
         <junitreport todir="${junit.output.dir}">

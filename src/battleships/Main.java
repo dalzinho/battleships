@@ -2,7 +2,7 @@ package battleships;
 
 import java.util.concurrent.TimeUnit;
 
-public class Game {
+public class Main {
 	public static void main(String[] args) {
 		Player player1 = new Player("Player One");
 		Player player2 = new Player("Player Two");
