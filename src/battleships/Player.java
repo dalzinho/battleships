@@ -31,13 +31,19 @@ public class Player {
 			
 			// need to handle entering letters
 			// need to handle out of bounds
-		
+			
+			if(!board.shipFits(fleet.get(i), target[0], target[1], orientation)){
+				console.display("Out of bounds!");
+				break;
+			}
+			
 			if(board.shipOverlaps(fleet.get(i), target[0], target[1], orientation)){
 				console.display("Uh-oh! Ships can't overlap! Start again.");
 				break;
-			} else {
-				board.place(fleet.get(i), target[0], target[1], orientation);
 			}
+			
+			board.place(fleet.get(i), target[0], target[1], orientation);
+			
 		}
 		if(board.fullSquares < 17){
 			console.display("Something went wrong!");
@@ -46,9 +52,7 @@ public class Player {
 		}
 	}
 	
-	
-	
-	
+		
 	public void setTrackingBoard(Board board){
 		this.trackingBoard = new TrackingBoard(board.squares);
 	}

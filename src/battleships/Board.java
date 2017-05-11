@@ -37,7 +37,16 @@ public class Board {
 		}
 		return false;
 	}
-
+	
+	public boolean shipFits(Ship ship, int targetRow, int targetColumn, boolean isHorizontal){
+		if(isHorizontal){
+			if(targetColumn + ship.length <= 9) return true;
+		} else {
+			if(targetRow + ship.length <= 9) return true;
+		}
+		return false;
+	}
+	
 	// contemplate placeShip method/class, with regard to starting position, length and orientation
 	public void place(Ship ship, int targetRow, int targetColumn, boolean isHorizontal){
 		if(isHorizontal){
