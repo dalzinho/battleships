@@ -3,10 +3,12 @@ package battleships;
 public class Square {
 	boolean isFull;
 	boolean isVisible;
+	boolean hasBeenSelected;
 	
 	Square(){
 		this.isFull = false;
 		this.isVisible = true;
+		boolean hasBeenSelected = false;
 	}
 
 	public boolean isFull() {

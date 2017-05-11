@@ -31,12 +31,7 @@ public class BoardTest {
 		}
 		assertEquals(100, objects);
 	}
-	
-	@Test
-	public void horizontalPlacementReturnsTrue(){
-		assertTrue(board.place(ship, 0, 0, true));
-	}
-	
+
 	@Test
 	public void horizontalPlacementSetsSquaresFull(){
 		board.place(ship, 0, 0, true);
@@ -47,11 +42,7 @@ public class BoardTest {
 		assertFalse(board.squares[0][2].isFull());
 		
 	}
-	
-	@Test
-	public void verticalPlacementReturnsTrue(){
-		assertTrue(board.place(ship, 0, 0, false));
-	}
+
 	
 	@Test
 	public void verticalPlacementSetsSquaresFull(){
