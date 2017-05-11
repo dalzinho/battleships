@@ -28,3 +28,8 @@ This model is written in pure Java and is intended to run in the terminal. I hav
 
 * `fire()` method added to player. This takes row and column integers and selects the appropriate square from the tracking board. It sets it to be visible, and if the square is full, increments the player's hits variable. 
 * The game is played on a loop based on checking the win status of each player (i.e `hits < 17`. If both are false, players take turns to `fire()` at a square.
+
+## Outstanding issues
+
+* entering character during fire sequence throws inputmismatchexception
+* would prefer players to have manual ship entry (and all the exception handling this brings :D )

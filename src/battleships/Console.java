@@ -4,9 +4,17 @@ import java.util.Scanner;
 
 public class Console {
 	Scanner sc;
+	Renderer rend;
 	
 	Console(){
 		sc = new Scanner(System.in);
+		rend = new Renderer();
+	}
+	
+	public void renderGrid(TrackingBoard trackingBoard){
+		for(int row = 0; row < trackingBoard.squares.length; row++){
+			System.out.println("| " + rend.renderRow(trackingBoard.squares[row]));
+		}
 	}
 	
 	public int[] getFireTarget(){
