@@ -36,4 +36,12 @@ public class Player {
 		
 	}
 	
+	public boolean checkWin(){
+		if(hits == 17){
+			return true;
+		}
+		
+		return false;
+	}
+	
 }
