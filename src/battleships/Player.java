@@ -30,11 +30,10 @@ public class Player {
 			boolean orientation = console.getOrientation();
 			
 			// need to handle entering letters
-			// need to handle overlaps
 			// need to handle out of bounds
 		
 			if(board.shipOverlaps(fleet.get(i), target[0], target[1], orientation)){
-				console.display("Uh-oh! Ships can't overlap!");
+				console.display("Uh-oh! Ships can't overlap! Start again.");
 				break;
 			} else {
 				board.place(fleet.get(i), target[0], target[1], orientation);
@@ -55,17 +54,19 @@ public class Player {
 	}
 	
 	public boolean fire(int row, int column){
-		// need to handle multiple selections of hit squares
 		
 		Square targetSquare = trackingBoard.squares[row][column];
-		targetSquare.setVisible(true);
-		if (targetSquare.isFull()){
-			hits++;
-			return true;
+		if(!targetSquare.isVisible()){
+			targetSquare.setVisible(true);
+			if (targetSquare.isFull()){
+				hits++;
+				return true;
+			}
+			
+			return false;
 		}
-		
+		console.display("You picked that one before! That was silly.");
 		return false;
-		
 	}
 	
 	public boolean checkWin(){
