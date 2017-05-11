@@ -20,21 +20,23 @@ public class Console {
 	public int[] getFireTarget(){
 		int[] target = new int[2];
 		
-		display("What row? (0-indexed!)");
-		target[0] = sc.nextInt();
-		// catch out of bounds
-		while(target[0] > 9){
-			display("out of bounds, try again!");
-			target[0] = sc.nextInt();
-		}
-		display("What column? (Also 0-indexed!)");
-		target[1] = sc.nextInt();
-		
-		while(target[1] > 9){
-			display("out of bounds, try again!!");
-			target[1] = sc.nextInt();
-		}
-		
+		for(int i = 0; i < target.length; i++){
+			String displayItem = null;
+			switch (i){
+				case 0: displayItem = "row";
+						break;
+				case 1: displayItem = "column";
+						break;
+			}
+			
+			display("Enter " + displayItem + "! (This is zero-indexed)");
+			target[i] = sc.nextInt();
+			// catch out of bounds
+			while(target[i] > 9){
+				display("out of bounds, try again!");
+				target[i] = sc.nextInt();
+			}
+		}	
 		return target;
 	}
 	

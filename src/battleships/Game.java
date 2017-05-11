@@ -6,6 +6,7 @@ public class Game {
 	public static void main(String[] args) {
 		Player player1 = new Player("Player One");
 		Player player2 = new Player("Player Two");
+		Player currentPlayer = null;
 		Console console = new Console();
 		
 		player1.setupBoard();
@@ -15,23 +16,24 @@ public class Game {
 		player2.setTrackingBoard(player1.board);
 		
 		boolean p1turn = true;
-		while (!player1.checkWin() || !player2.checkWin()){	
+		
+		while (true){	
 			
 			if(p1turn){
-				console.renderGrid(player1.trackingBoard);
-				console.display("Fire at will, Player One");
-				int[] target = console.getFireTarget();
-				if(player1.fire(target[0], target[1])){
-					console.display("HIT!");
-				};
+				currentPlayer = player1;
 			} else {
-				console.renderGrid(player2.trackingBoard);
-				console.display("Fire at will, Player Two");
-				int[] target = console.getFireTarget();
-				if(!player2.fire(target[0], target[1])){
-					console.display("miss :(");
-				};
+				currentPlayer = player2;
 			}
+			
+				console.renderGrid(currentPlayer.trackingBoard);
+				console.display("Fire at will, " + currentPlayer.name);
+				int[] target = console.getFireTarget();
+				if(currentPlayer.fire(target[0], target[1])){
+					console.display("HIT!");
+				} else {
+					console.display("miss :(");
+				}
+		
 			
 			try {
 				TimeUnit.SECONDS.sleep(2);
@@ -39,8 +41,12 @@ public class Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			if(currentPlayer.checkWin()){
+				break;
+			}
 			p1turn = (!p1turn);
 		}
+		
+		console.display(currentPlayer.name + " wins!");
 	}
 }
