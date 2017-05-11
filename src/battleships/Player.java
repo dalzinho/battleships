@@ -7,12 +7,14 @@ public class Player {
 	String name;
 	ArrayList<Ship> fleet;
 	TrackingBoard trackingBoard;
+	int hits;
 	
 	Player(String name){
 		this.board = new Board();
 		this.name = name;
 		this.fleet = ShipYard.buildFleet();
 		this.trackingBoard = null;
+		this.hits = 0;
 	}
 	
 	public void setupBoard(){
@@ -23,6 +25,15 @@ public class Player {
 	
 	public void setTrackingBoard(Board board){
 		this.trackingBoard = new TrackingBoard(board.squares);
+	}
+	
+	public void fire(int row, int column){
+		Square targetSquare = trackingBoard.squares[row][column];
+		targetSquare.setVisible(true);
+		if (targetSquare.isFull()){
+			hits++;
+		}
+		
 	}
 	
 }

@@ -46,4 +46,24 @@ public class PlayerTest {
 		assertFalse(player.trackingBoard.squares[5][0].isFull);
 		
 	}
+	
+	@Test
+	public void fireSetsTargetToVisible(){
+		player2.setupBoard();
+		player.setTrackingBoard(player2.board);
+
+		assertFalse(player.trackingBoard.squares[5][6].isVisible);
+		player.fire(5, 6);
+		assertTrue(player.trackingBoard.squares[5][6].isVisible);
+	}
+	
+	@Test
+	public void fireIncrementsHitsIfTargetFull(){
+		player2.setupBoard();
+		player.setTrackingBoard(player2.board);
+		
+		assertEquals(0, player.hits);
+		player.fire(0, 0);
+		assertEquals(1, player.hits);
+	}
 }

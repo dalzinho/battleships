@@ -18,3 +18,12 @@ This model is written in pure Java and is intended to run in the terminal. I hav
 * A tracking board is contructed using a `Square[][]` array. This will be passed from one player's primary board to the other once players have positioned their ships.
 * Another instance variable `isVisible` was added to the `Square` class. This boolean will control whether players can see whether the square is full or not.
 * The tracking board's constructor calls a private method that sets all squares on the board to invisible.
+* The Player class calls a method `setTrackingBoard` that takes the opponent's board positions and generates a tracking board from this.
+
+## Validation
+
+* Initially, boards are hard-coded to be valid (i.e. 5 ships of a given length, placed within bounds in a non-overlapping fashion).
+
+## Determine Winner
+
+* `fire()` method added to player. This takes row and column integers and selects the appropriate square from the tracking board. It sets it to be visible, and if the square is full, increments the player's hits variable.
